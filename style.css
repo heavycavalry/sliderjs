@@ -1,0 +1,85 @@
+body,
+html {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    /* overflow: hidden; */
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    height: 12vh;
+    background: linear-gradient(to right, #4175e4 0%, #da4dab 100%);
+}
+
+.title {
+    margin: 0;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    font-size: 65px;
+}
+
+.text {
+    font-size: 40px;
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 33%;
+    transition: 0.6s;
+
+}
+
+.gallery img:hover {
+    transform: scale(0.9);
+}
+
+.lightbox {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.781);
+    left: 0;
+    top: 0;
+}
+
+.lightbox img {
+    position: relative;
+    max-width: 100%;
+    max-height: 70%;
+}
+
+.visible {
+    display: flex;
+}
+
+.icons {
+    color: rgba(255, 255, 255, 0.575);
+    position: absolute;
+}
+
+.closeIcon {
+    padding: 90px;
+    font-size: 60px;
+    top: 0;
+    right: 12vw;
+}
+
+.leftArrow,
+.rightArrow {
+    font-size: 180px;
+    padding: 100px;
+}
+
+.leftArrow {
+    left: 10vw;
+}
+
+.rightArrow {
+    right: 10vw;
+}

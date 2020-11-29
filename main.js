@@ -1,7 +1,5 @@
 const images = document.querySelectorAll('.gallery img');
-// image.addEventListener('click', showLightBox);
 let currentImg;
-
 
 for (let index = 0; index < images.length; index++) {
     const image = images[index];
@@ -9,16 +7,17 @@ for (let index = 0; index < images.length; index++) {
     image.index = index;
 }
 
-function showLightBox(event) {
+function show(image) {
     const lightbox = document.querySelector('.lightbox');
-    const img = document.querySelector('.lightbox img');
-    const imageURL = event.target.src;
-    currentImg = event.target;
-    // console.log(event.target.index)
-    // const next = images[(event.target.index + 1) % images.length]
-    // img.src = next.src;
-    img.src = imageURL;
+    const lightboxImg = document.querySelector('.lightbox img');
+    const targetImgSrc = image.src;
+    lightboxImg.src = targetImgSrc;
+    currentImg = image;
     lightbox.classList.add('visible');
+}
+
+function showLightBox(event) {
+    show(event.target);
 }
 
 const closeIcon = document.querySelector('.closeIcon');
@@ -28,22 +27,19 @@ function Close() {
     const lightbox = document.querySelector('.lightbox');
     lightbox.classList.remove('visible');
 }
+
+
 const rightarrow = document.querySelector('.rightArrow');
 const leftarrow = document.querySelector('.leftArrow');
-leftarrow.addEventListener('click', PreviousImg);
-rightarrow.addEventListener('click', NextImg);
+leftarrow.addEventListener('click', Left);
+rightarrow.addEventListener('click', Right);
 
-function NextImg(event) {
-    const lightbox = document.querySelector('.lightbox');
-    const img = document.querySelector('.lightbox img');
-    let nextImg = images[(event.target.index + 1) % images.length];
-    currentImg = nextImg; 
-        
+function Right(event) {
+    let nextIndex = (currentImg.index + 1) % images.length;
+    show(images[nextIndex])
 }
 
-
-function PreviousImg() {
-
+function Left(event) {
+    let beforeIndex = (currentImg.index - 1 + images.length) % images.length;
+    show(images[beforeIndex])
 }
-
-// nextelementsiblig
